@@ -1,4 +1,4 @@
 # Project exclude paths
-/bot/target/
+**/target
 *.properties
 /bot/src/main/resources/config.properties

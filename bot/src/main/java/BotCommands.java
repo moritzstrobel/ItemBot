@@ -5,7 +5,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.json.JSONArray;
 import org.json.JSONObject;
-import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.EmbedBuilder;
 
 import java.util.Objects;
@@ -54,11 +53,11 @@ public class BotCommands extends ListenerAdapter {
                             // Build the embed
                             EmbedBuilder embedBuilder = new EmbedBuilder()
                                     .setTitle(itemNameFromData)
-                                    .setDescription("Item ID: " + itemId + "\nwowheadLink: " + wowheadLink)
+                                    .setDescription("Item ID: " + itemId + "\n" + wowheadLink)
                                     .setColor(0x00ff00); // Green color (you can use decimal or hexadecimal values)
     
                             // Send the embed as a message to the text channel
-                            event.replyEmbeds(embedBuilder.build()).queue();
+                            event.replyEmbeds(embedBuilder.build()).setEphemeral(true).queue();
                         } else {
                             event.reply("Item not found.").setEphemeral(true).queue();
                         }
@@ -69,6 +68,8 @@ public class BotCommands extends ListenerAdapter {
                     e.printStackTrace();
                 }
             break;
+            
+/*REFERENCE FROM OLD BOT
             case "add":
                 String name = Objects.requireNonNull(event.getOption("name")).getAsString();
                 String start = Objects.requireNonNull(event.getOption("start")).getAsString();
@@ -90,7 +91,7 @@ public class BotCommands extends ListenerAdapter {
                     event.reply("**Done**").setEphemeral(true).queue();
                 }
             break;
-/*REFERENCE FROM OLD BOT
+
             case "query":
                 String replytext = ":crown: **" + Objects.requireNonNull(event.getOption("name")).getAsString() + "**\n > Format: id [ StartDate - EndDate ]\n\n";
 
@@ -111,8 +112,7 @@ public class BotCommands extends ListenerAdapter {
                 }
                 event.reply(replytext).setEphemeral(true).queue();
             break;
- */
- /*REFERENCE FROM OLD BOT
+
             case "all":
                 String replytextII = "";
                 try {

@@ -1,9 +1,7 @@
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.OnlineStatus;
-import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.entities.Activity;
-import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
@@ -19,6 +17,7 @@ public class Bot
                 .setActivity(Activity.listening("/"))
                 .setStatus(OnlineStatus.ONLINE)
                 .build();
+/*REFERENCE FROM OLD BOT
         jda.upsertCommand("add", "add new entry")
                 .addOptions(
                         new OptionData(OptionType.STRING, "name", "Name of the player", true),
@@ -30,22 +29,12 @@ public class Bot
                 .addOptions(
                         new OptionData(OptionType.STRING, "id", "Key of the Data", true)
                 ).queue();
-
+*/
         jda.upsertCommand("item", "get info of an item")
                 .addOptions(
                         new OptionData(OptionType.STRING, "name", "Name of the item", true)
                 ).queue();
-                
+               
         jda.updateCommands().queue();
-/*REFERENCE FROM OLD BOT
-        jda.upsertCommand("query", "query the bot db, by name")
-                .addOption(OptionType.STRING, "name", "Name of the member", true)
-                .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR))
-                .queue();
-
-        jda.upsertCommand("all", "shows all items")
-                .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR))
-                .queue();
-*/
    }
 }
