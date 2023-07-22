@@ -31,6 +31,13 @@ public class Bot
                         new OptionData(OptionType.STRING, "id", "Key of the Data", true)
                 ).queue();
 
+        jda.upsertCommand("item", "get info of an item")
+                .addOptions(
+                        new OptionData(OptionType.STRING, "name", "Name of the item", true)
+                ).queue();
+                
+        jda.updateCommands().queue();
+/*REFERENCE FROM OLD BOT
         jda.upsertCommand("query", "query the bot db, by name")
                 .addOption(OptionType.STRING, "name", "Name of the member", true)
                 .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR))
@@ -39,10 +46,6 @@ public class Bot
         jda.upsertCommand("all", "shows all items")
                 .setDefaultPermissions(DefaultMemberPermissions.enabledFor(Permission.ADMINISTRATOR))
                 .queue();
-
-        jda.upsertCommand("setup", "setup")
-                .addOptions(
-                        new OptionData(OptionType.STRING, "channelid", "what channel the messages get posted in: Example: 1089967425040167063", true)
-                ).queue();
+*/
    }
 }

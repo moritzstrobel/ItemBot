@@ -1,7 +1,4 @@
 import java.sql.*;
-import java.sql.SQLException;
-import java.text.ParseException;
-import java.util.ArrayList;
 
 public class DatabaseCommands {
     public void createNewDatabase(String fileName) {
@@ -51,7 +48,7 @@ public class DatabaseCommands {
         }
         return conn;
     }
-
+/*REFERENCE FROM OLD BOT
     public ArrayList<Member> selectAll() throws ParseException{
         String sql = "SELECT id, name, sdate, edate FROM memberlist";
 
@@ -71,7 +68,8 @@ public class DatabaseCommands {
         }
         return null;
     }
-
+ */
+/*REFERENCE FROM OLD BOT
     public ArrayList<Member> selectName(String name){
         String sql = "SELECT id, name, sdate, edate FROM memberlist WHERE name = ?";
 
@@ -94,7 +92,7 @@ public class DatabaseCommands {
             return null;
         }
     }
-
+ */
     public boolean insert(String name, String sdate, String edate) {
         String sql = "INSERT INTO memberlist(name,sdate,edate) VALUES(?,?,?)";
 

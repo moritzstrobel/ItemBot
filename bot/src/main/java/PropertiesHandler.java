@@ -7,7 +7,7 @@ import java.util.Properties;
 
 abstract class PropertiesHandler {
     public static String getPropertie(String name){
-        try (InputStream input = Files.newInputStream(Paths.get("src/main/resources/config.properties"))) {
+        try (InputStream input = Files.newInputStream(Paths.get("bot/src/main/resources/config.properties"))) {
 
             Properties prop = new Properties();
 
@@ -24,8 +24,8 @@ abstract class PropertiesHandler {
     }
     public static String setPropertie(String name, String value){
         try (
-                OutputStream output = Files.newOutputStream(Paths.get("src/main/resources/config.properties"));
-                InputStream input = Files.newInputStream(Paths.get("src/main/resources/config.properties"))
+                OutputStream output = Files.newOutputStream(Paths.get("bot/src/main/resources/config.properties"));
+                InputStream input = Files.newInputStream(Paths.get("bot/src/main/resources/config.properties"))
             ) {
             Properties prop = new Properties();
             prop.load(input);
